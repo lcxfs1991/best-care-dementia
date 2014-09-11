@@ -8,6 +8,7 @@ function questionController($scope, $http){
 	$scope.prevScore = [];
 	$scope.questionResult = false;
 	$scope.ResultText = "";
+	$scope.figure = null;
 
 	$scope.getStudy = function(){
 		if ($scope.study > 0){
@@ -39,9 +40,15 @@ function questionController($scope, $http){
 
 			$scope.prevScore.push(score);
 			$scope.totalScore += $scope.prevScore[i];
+			$scope.figure = null;
 
 			if (data[i + 1] != undefined){
 				$scope.showQuestion = data[++i];
+
+				if ($scope.showQuestion['img'] != undefined){
+					$scope.figure = $scope.showQuestion['img'][0];
+				}
+
 				$scope.btn();
 			}
 			else if (data[i + 1] == undefined){
