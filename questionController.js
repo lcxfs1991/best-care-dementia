@@ -6,6 +6,8 @@ function questionController($scope, $http){
 	$scope.studyHint = "";
 	$scope.questionStart = false;
 	$scope.prevScore = [];
+	$scope.questionResult = false;
+	$scope.ResultText = "";
 
 	$scope.getStudy = function(){
 		if ($scope.study > 0){
@@ -42,6 +44,12 @@ function questionController($scope, $http){
 				$scope.showQuestion = data[++i];
 				$scope.btn();
 			}
+			else if (data[i + 1] == undefined){
+
+				$scope.getResult();
+				$scope.questionResult = true;
+				$scope.questionStart = false;
+			}
 			
 		}
 
@@ -58,6 +66,41 @@ function questionController($scope, $http){
 				$scope.questionStart = false;
 			}
 			
+		}
+
+		$scope.getResult = function(){
+			
+			$scope.ResultText = "被测试者的得分是"+$scope.totalScore;
+			var risk = ". 患痴呆症的风险较高, 请尽早到医院进行全面检查.";
+			var safe = ". 患痴呆症的风险较小, 但亦请密切留意老人健康.";
+
+			if ($scope.study == 1){
+
+				if ($scope.totalScore <= 17){
+					$scope.ResultText += risk;
+				}
+				else {
+					$scope.ResultText += safe;
+				}
+			}
+			else if ($scope.study == 2){
+				
+				if ($scope.totalScore <= 20){
+					$scope.ResultText += risk;
+				}
+				else {
+					$scope.ResultText += safe;
+				}
+			}
+			else if ($scope.study == 3){
+
+				if ($scope.totalScore <= 24){
+					$scope.ResultText += risk;
+				}
+				else {
+					$scope.ResultText += safe;
+				}
+			}
 		}
 
 	});

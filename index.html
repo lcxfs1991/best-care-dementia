@@ -32,10 +32,11 @@
 	 	<span ng-repeat="x in pointsLen">
 	 		<button ng-click='page(x)'>{{x}}分</button>
 	 	</span>
+	 	<div>{{totalScore}}</div>
  	</div>
 
- 	<div>
- 		{{totalScore}}
+ 	<div ng-show="questionResult">
+ 		{{ResultText}}
  	</div>
  	
 </div>
