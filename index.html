@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<meta charset="UTF-8">
+<head>
+	<base href="/bcd/" target="_blank">
+</head>
+<body>
+
+<div ng-app="" ng-controller="questionController">
+ 	
+ 	<div ng-show="studyCheck">
+ 		请问被测试者的教育程度是:
+ 		<form novalidate class="simple-form">
+ 		<select name="studyLevel" ng-model="study">
+ 			<option value="1">文盲</option>
+ 			<option value="2">小学</option>
+ 			<option value="3">中学或以上</option>
+ 		</select>	
+ 		<button ng-click='getStudy()'>确认</button>
+ 		<div>{{studyHint}}</div>
+ 		</form>
+ 	</div>
+
+	<div ng-show="questionStart">
+	 	<p>{{showQuestion['question']}}</p>
+	 	<ul ng-repeat="points in showQuestion['point']">
+	 		<li>{{points}} (1分)</li>
+	 	</ul>
+	 	<span>
+	 		<button ng-click='goBack()'>返回</button>
+	 	</span>
+	 	<span ng-repeat="x in pointsLen">
+	 		<button ng-click='page(x)'>{{x}}分</button>
+	 	</span>
+ 	</div>
+
+ 	<div>
+ 		{{totalScore}}
+ 	</div>
+ 	
+</div>
+
+<script src="angular.js"></script>
+<script src="questionController.js"></script>
+
+</body>
+</html>
