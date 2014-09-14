@@ -7,6 +7,11 @@
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<script src="angular.min.js"></script>
 	<script src="questionController.js"></script>
+	<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F48c4233580128857d88a6ce31535b502' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+
 	<style>
 
 		body {
@@ -31,6 +36,7 @@
 		}
 
 	</style>
+	<title>不痴呆BCD-全国首个亲老手机测试</title>
 </head>
 <body>
 
@@ -69,7 +75,7 @@
 		 	<p style="text-align:left; font-size:17px; font-style: italic;">{{hint}}</p>
 		 	<img width="100px" src="{{figure}}" />
 		 	<ul style="text-align:left" ng-repeat="points in showQuestion['point']">
-		 		<li>{{points}}</li>
+		 		<li style="{{highlight}}">{{points}}</li>
 		 	</ul>
 		 	<div class="row" style="text-align:left; margin-left: 5px;">
 			 	<span>

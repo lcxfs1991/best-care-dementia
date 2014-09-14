@@ -111,6 +111,13 @@ function questionController($scope, $http){
 					$scope.hint = $scope.showQuestion['instruction'][0];
 			}
 
+			if ($scope.showQuestion['highlight'] != undefined){
+					$scope.highlight = "font-size: 30px;background:yellow;";
+			}
+			else {
+				$scope.highlight = null;
+			}
+
 			if ($scope.showQuestion['type'] != undefined){
 				$scope.nextPageDisplay = true;
 				$scope.pointsLen = [];
