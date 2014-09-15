@@ -8,6 +8,7 @@ function questionController($scope, $http){
 	$scope.prevScore = [];				// store previous stock score in order to go back and deduct from total score
 	$scope.questionResult = false;		// question result block display true/false
 	$scope.ResultText = "";				// question result text
+	$scope.Safety = "";
 	$scope.figure = null;				// image of questions
 	$scope.hint = null;					// question instruction
 	$scope.nextPageDisplay = false;		// question next button display true/false
@@ -131,23 +132,23 @@ function questionController($scope, $http){
 		//display question result
 		$scope.getResult = function(){
 			
-			$scope.ResultText = "恭喜你完成测试, 总分为"+$scope.totalScore;
-			var risk = "。 \n您的智能状态受损, 建议到正规医院诊断, 请关注\"不痴呆BCD\"公众号, 抓住黄金干预期。";
-			var safe = "。 \n您的智能状态良好，建议每半年测试一次, 请关注\"不痴呆BCD\"公众号, 爱护脑健康。";
+			$scope.ResultText = "恭喜你完成测试, 总分为"+$scope.totalScore+"。";
+			var risk = "您的智能状态受损, 建议到正规医院诊断, 请关注\"不痴呆BCD\"公众号, 抓住黄金干预期。";
+			var safe = "您的智能状态良好，建议每半年测试一次, 请关注\"不痴呆BCD\"公众号, 爱护脑健康。";
 
 			if ($scope.study == 1){
 
 				if ($scope.totalScore <= 17){
-					$scope.ResultText += risk;
+					$scope.Safety = risk;
 				}
 				else {
-					$scope.ResultText += safe;
+					$scope.Safety = safe;
 				}
 			}
 			else if ($scope.study == 2){
 				
 				if ($scope.totalScore <= 20){
-					$scope.ResultText += risk;
+					$scope.Safety = risk;
 				}
 				else {
 					$scope.ResultText += safe;
@@ -156,10 +157,10 @@ function questionController($scope, $http){
 			else if ($scope.study == 3){
 
 				if ($scope.totalScore <= 24){
-					$scope.ResultText += risk;
+					$scope.Safety = risk;
 				}
 				else {
-					$scope.ResultText += safe;
+					$scope.Safety = safe;
 				}
 			}
 		}
@@ -170,6 +171,15 @@ function questionController($scope, $http){
 
 		$scope.follow = function(){
 			window.document.location = "http://mp.weixin.qq.com/s?__biz=MjM5MzYxNTAwOQ==&mid=201235767&idx=1&sn=c7b314db364eab91c89af656920ed184#rd";
+		}
+
+		$scope.restart = function(){
+			$scope.totalScore = 0;
+			$scope.study = 0;
+			$scope.questionResult = false;
+			$scope.studyCheck = true;
+			i = 0;
+			$scope.prevScore = [];
 		}
 
 	});

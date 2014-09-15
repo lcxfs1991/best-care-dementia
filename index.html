@@ -10,8 +10,9 @@
 	<script src="questionController.js"></script>
 	<script type="text/javascript">
 	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F48c4233580128857d88a6ce31535b502' type='text/javascript'%3E%3C/script%3E"));
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F82cfecf8df092893b383a246f2294e97' type='text/javascript'%3E%3C/script%3E"));
 	</script>
+
 
 	<script>
 
@@ -19,7 +20,7 @@
         var Wechat = {
 
             imgUrl: 'http://leehey.org/bgame/res/logo.jpg',
-            lineLink:  'http://leehey.org/publish',
+            lineLink:  'http://leehey.org/bcd',
             descContent: "简易智能状态测试",
             shareTitle: "快来帮爸爸妈妈测一测!"
         };
@@ -167,7 +168,7 @@
 
 	 		</form>
 	 	</div>
-	 	<div class="col-xs-1 col-sm-3 col-md-3"></div>
+	 	<div class="col-xs-1 col-sm-3 col-md-3">{{}}</div>
 	</div>
 
 	<div class="row">
@@ -190,7 +191,7 @@
 			 		<button ng-click='page(x)' class="btn btn-primary">{{x}} 分</button>
 			 	</span>
 			</div>
-		 	<div></div>
+		 	<div>{{totalScore}}</div>
 	 	</div>
 	 	<div class="col-xs-1 col-sm-2"></div>
 	 </div>
@@ -199,12 +200,17 @@
 		<div class="col-xs-1 col-sm-4"></div>
 	 	<div class="col-xs-10 col-sm-4" ng-show="questionResult" style="text-align:center">
 	 		<p style="text-align:left">{{ResultText}}</p>
+	 		<p style="text-align:left">{{Safety}}</p>
 	 		<span>
 	 			
 	 		</span>
 	 			<button ng-click="follow()" class="btn btn-primary">快来关注我们</button>
 	 		<span>
 	 			<button ng-click="share()" class="btn btn-danger">分享到朋友圈</button>
+	 		</span>
+
+	 		<span>
+	 			<button ng-click="restart()" class="btn btn-info"> 重新评估 </button>
 	 		</span>
 	 	</div>
 	 	<div class="col-xs-1 col-sm-4"></div>
