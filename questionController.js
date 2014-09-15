@@ -132,8 +132,8 @@ function questionController($scope, $http){
 		$scope.getResult = function(){
 			
 			$scope.ResultText = "恭喜你完成测试, 总分为"+$scope.totalScore;
-			var risk = "。 您的智能状态受损, 建议到正规医院诊断, 请关注\"不痴呆BCD\"公众号, 抓住黄金干预期。";
-			var safe = "。 您的智能状态良好，建议每半年测试一次, 请关注\"不痴呆BCD\"公众号, 爱护脑健康。";
+			var risk = "。 \n您的智能状态受损, 建议到正规医院诊断, 请关注\"不痴呆BCD\"公众号, 抓住黄金干预期。";
+			var safe = "。 \n您的智能状态良好，建议每半年测试一次, 请关注\"不痴呆BCD\"公众号, 爱护脑健康。";
 
 			if ($scope.study == 1){
 
@@ -162,6 +162,14 @@ function questionController($scope, $http){
 					$scope.ResultText += safe;
 				}
 			}
+		}
+
+		$scope.share = function(){
+			alert("点击右上角，分享到朋友圈");
+		}
+
+		$scope.follow = function(){
+			window.document.location = "http://mp.weixin.qq.com/s?__biz=MjM5MzYxNTAwOQ==&mid=201235767&idx=1&sn=c7b314db364eab91c89af656920ed184#rd";
 		}
 
 	});
