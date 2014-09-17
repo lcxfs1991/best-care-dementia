@@ -113,7 +113,7 @@ function questionController($scope, $http){
 			}
 
 			if ($scope.showQuestion['highlight'] != undefined){
-					$scope.highlight = "font-size: 30px;background:yellow;";
+					$scope.highlight = "font-size: 25px;background:yellow;";
 			}
 			else {
 				$scope.highlight = null;
